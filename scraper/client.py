@@ -49,7 +49,20 @@ BASE = "https://d3e6htiiul5ek9.cloudfront.net/prod"
 OFF_BASE = "https://world.openfoodfacts.org/api/v2/product"
 
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (preciorealbeta scraper; contacto: martin)",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) Gecko/20100101 Firefox/128.0",
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Language": "es-AR,es;q=0.9,en;q=0.8",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Origin": "https://www.preciosclaros.gob.ar",
+    "Referer": "https://www.preciosclaros.gob.ar/",
+    "Connection": "keep-alive",
+}
+
+# Headers para Open Food Facts: ahí sí conviene identificarte como scraper
+# real (piden User-Agent descriptivo por sus términos de uso), así que va
+# un UA separado en vez de reusar el de PreciosClaros.
+OFF_HEADERS = {
+    "User-Agent": "preciorealbeta-scraper/1.0 (contacto: martin)",
     "Accept": "application/json",
 }
 
@@ -145,7 +158,7 @@ def buscar_imagen_openfoodfacts(codigo_barras: str) -> str | None:
         resp = requests.get(
             f"{OFF_BASE}/{codigo_barras}.json",
             params={"fields": "image_front_url,image_url"},
-            headers=HEADERS,
+            headers=OFF_HEADERS,
             timeout=10,
         )
         resp.raise_for_status()
