@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>preciorealbeta — Gral. San Martín</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <span class="logo">precio<b>real</b>beta</span>
+      <input id="buscador" type="search" placeholder="Buscar producto...">
+      <span id="fecha-captura" class="fecha-captura"></span>
+    </div>
+  </header>
+
+  <main>
+    <div class="filtros">
+      <button class="chip activo" data-tipo="todos">Todos</button>
+      <button class="chip" data-tipo="minorista">Minorista</button>
+      <button class="chip" data-tipo="mayorista">Mayorista</button>
+    </div>
+
+    <div id="grid" class="grid"></div>
+    <p id="vacio" class="vacio" hidden>No se encontraron productos.</p>
+  </main>
+
+  <div id="overlay" class="overlay" hidden>
+    <div id="panel" class="panel">
+      <button id="cerrar" class="cerrar">✕</button>
+      <div id="panel-contenido"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

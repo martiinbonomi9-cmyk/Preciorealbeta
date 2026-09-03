@@ -1,0 +1,97 @@
+:root{
+  --texto:#0f1111;
+  --texto-secundario:#565959;
+  --fondo:#ffffff;
+  --fondo-alterno:#f4f4f4;
+  --borde:#e3e6e6;
+  --oferta:#067d62;
+  --precio:#0f1111;
+  --link:#007185;
+  --amarillo:#f0c14b;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  color:var(--texto);
+  background:var(--fondo-alterno);
+}
+
+.topbar{background:#131921;padding:10px 16px}
+.topbar-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:16px}
+.logo{color:#fff;font-size:20px;font-weight:600;white-space:nowrap}
+.logo b{color:var(--amarillo)}
+#buscador{
+  flex:1;padding:9px 12px;border:none;border-radius:4px;font-size:15px;
+}
+.fecha-captura{color:#ccc;font-size:12px;white-space:nowrap}
+
+.filtros{max-width:1200px;margin:14px auto 0;padding:0 16px;display:flex;gap:8px}
+.chip{
+  border:1px solid var(--borde);background:#fff;border-radius:16px;
+  padding:6px 14px;font-size:13px;cursor:pointer;color:var(--texto-secundario);
+}
+.chip.activo{background:var(--texto);color:#fff;border-color:var(--texto)}
+
+.grid{
+  max-width:1200px;margin:14px auto;padding:0 16px;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;
+}
+.card{
+  background:var(--fondo);border:1px solid var(--borde);border-radius:6px;
+  padding:12px;cursor:pointer;display:flex;flex-direction:column;gap:6px;
+}
+.card:hover{border-color:#999}
+.card img{width:100%;height:130px;object-fit:contain;background:#fff}
+.card .nombre{font-size:13px;line-height:1.3;color:var(--texto);
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:34px}
+.card .cadena-min{font-size:11px;color:var(--texto-secundario)}
+.card .precio{font-size:19px;font-weight:600;color:var(--precio)}
+.card .badge-oferta{
+  align-self:flex-start;background:var(--oferta);color:#fff;font-size:11px;
+  padding:2px 6px;border-radius:3px;font-weight:600;
+}
+
+.vacio{text-align:center;color:var(--texto-secundario);margin:60px 0}
+
+.overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.45);
+  display:flex;align-items:flex-start;justify-content:center;
+  padding:24px 16px;overflow-y:auto;z-index:10;
+}
+.panel{
+  background:#fff;border-radius:8px;max-width:680px;width:100%;
+  padding:24px;position:relative;
+}
+.cerrar{
+  position:absolute;top:12px;right:12px;border:none;background:none;
+  font-size:18px;cursor:pointer;color:var(--texto-secundario);
+}
+.detalle-header{display:flex;gap:16px;margin-bottom:16px}
+.detalle-header img{width:110px;height:110px;object-fit:contain}
+.detalle-header h2{font-size:17px;margin:0 0 6px}
+.detalle-header .marca{color:var(--texto-secundario);font-size:13px}
+
+.lista-precios{border-top:1px solid var(--borde)}
+.fila-precio{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:10px 0;border-bottom:1px solid var(--borde);font-size:14px;
+}
+.fila-precio:first-child .precio-monto{color:var(--oferta)}
+.cadena-nombre{color:var(--texto)}
+.sucursal-nombre{color:var(--texto-secundario);font-size:12px;display:block}
+.precio-monto{font-weight:600;font-size:16px}
+
+.evolucion{margin-top:20px}
+.evolucion h3{font-size:14px;margin-bottom:8px}
+.rango-botones{display:flex;gap:6px;margin-bottom:10px}
+.rango-botones button{
+  border:1px solid var(--borde);background:#fff;border-radius:4px;
+  padding:5px 10px;font-size:12px;cursor:pointer;
+}
+.rango-botones button.activo{background:var(--texto);color:#fff;border-color:var(--texto)}
+table.tabla-evolucion{width:100%;border-collapse:collapse;font-size:12px}
+table.tabla-evolucion th,table.tabla-evolucion td{
+  padding:6px 8px;border-bottom:1px solid var(--borde);text-align:left;white-space:nowrap;
+}
+table.tabla-evolucion th{color:var(--texto-secundario);font-weight:600}
